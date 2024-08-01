@@ -1,0 +1,58 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <div class="card">
+    <div class="row no-gutters">
+      <div class="col-md-4">
+        {% if book.image %}
+          <img src="{{ book.image.url }}" class="img-fluid img-thumbnail" alt="{{ book.title }}">
+        {% endif %}
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">{{ book.title }}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">by {{ book.author }}</h6>
+          <p class="card-text">Seller: {{ book.seller.username }}</p>
+          <p class="card-text">{{ book.description }}</p>
+          <p class="card-text">Price: ₹{{ book.price }}</p>
+          {% if user.is_authenticated %}
+            {% if book.seller == user %}
+              <a href="{% url 'edit_book' book.pk %}" class="btn btn-primary">Edit</a>
+              <a href="{% url 'delete_book' book.pk %}" class="btn btn-danger">Delete</a>
+            {% else %}
+              <a href="{% url 'purchase_book' book.pk %}" class="btn btn-primary">Buy Now</a>
+            {% endif %}
+          {% else %}
+            <p class="text-danger">You need to <a href="{% url 'login' %}">log in</a> to buy this book or add a review.</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Reviews</h5>
+      {% if book.review_set.all %}
+        <ul>
+          {% for review in book.review_set.all %}
+            <li>
+              <strong>{{ review.user.username }}</strong> - {{ review.rating }}/5
+              <p>{{ review.comment }}</p>
+              {% if review.user == user %}
+                <a href="{% url 'delete_review' review.pk %}" class="btn btn-danger">Delete</a>
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p>No reviews yet. Be the first to review this book!</p>
+      {% endif %}
+      {% if user.is_authenticated %}
+        <a href="{% url 'add_review' book.pk %}" class="btn btn-primary">Add Review</a>
+      {% else %}
+        <p>You need to be logged in to add a review. <a href="{% url 'login' %}">Log in</a></p>
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}
