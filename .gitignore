@@ -8,13 +8,9 @@ __pycache__/
 /media
 /staticfiles
 /static/
-/profile_pics/
+/profile_pics
 .env
 venv/
 .idea/
 .vscode/
-*.log
-*.pot
-*.mo
-*.swp
-*.swo
+
