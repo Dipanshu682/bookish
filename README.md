@@ -23,3 +23,31 @@ Bookish is a Django-based application for buying and selling books. Users can li
 ```sh
 git clone https://github.com/Dipansh682/bookish.git
 cd bookish
+
+2. Create a virtual environment and activate it:
+
+```sh
+python -m venv venv
+.\venv\Scripts\activate # On Mac use `source venv/bin/activate`
+
+3. Install the required packages:
+
+```sh
+pip install -r requirements.txt
+
+4. Apply the migrations:
+
+```sh
+python manage.py migrate
+
+5. Create a superuser:
+
+```sh
+python manage.py createsuperuser
+
+6. Run the development server:
+
+```sh
+python manage.py runserver
+
+7. Open your browser and go to `http://127.0.0.1:8000/`
