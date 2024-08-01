@@ -28,7 +28,7 @@ Bookish is a Django-based application for buying and selling books. Users can li
 1. **Clone the repository:**
 
    ```sh
-   git clone https://github.com/yourusername/bookish.git
+   git clone https://github.com/Dipanshu682/bookish.git
    cd bookish
    ```
 
