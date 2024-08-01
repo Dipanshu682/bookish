@@ -8,7 +8,7 @@ __pycache__/
 /media
 /staticfiles
 /static/
-/profile_pics
+/profile_pics/
 .env
 venv/
 .idea/
