@@ -9,6 +9,9 @@ Bookish is a Django-based application for buying and selling books. Users can li
 - Buy books
 - Leave reviews on books
 - User profiles
+- Search Books
+- Pagination of Book Listings
+- Django Signals for Notifications and Other Actions
 
 ## Technologies Used
 

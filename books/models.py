@@ -4,7 +4,7 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 
 
 class Book(models.Model):
-    image = models.ImageField(upload_to='book_images/', null=True, blank=True)
+    image = models.ImageField(upload_to="book_images/", null=True, blank=True)
     title = models.CharField(max_length=255)
     author = models.CharField(max_length=255)
     description = models.TextField()
